@@ -5,6 +5,12 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeslaCarSharing.Api", "src\api\TeslaCarSharing.Api.csproj", "{1782F752-4F0E-41E7-AC50-68E5783342BD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaCarSharing.Core", "src\core\TeslaCarSharing.Core\TeslaCarSharing.Core.csproj", "{A6EE1D4B-C831-4EB6-B423-A5414050414A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaCarSharing.Application", "src\application\TeslaCarSharing.Application\TeslaCarSharing.Application.csproj", "{DE5CE300-DAE0-4401-98FB-D467D3BF2022}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeslaCarSharing.Infrastructure", "src\infrastructure\TeslaCarSharing.Infrastructure\TeslaCarSharing.Infrastructure.csproj", "{A81CA71F-2F6D-4B43-88D8-4186623619F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{1782F752-4F0E-41E7-AC50-68E5783342BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1782F752-4F0E-41E7-AC50-68E5783342BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1782F752-4F0E-41E7-AC50-68E5783342BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6EE1D4B-C831-4EB6-B423-A5414050414A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6EE1D4B-C831-4EB6-B423-A5414050414A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6EE1D4B-C831-4EB6-B423-A5414050414A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6EE1D4B-C831-4EB6-B423-A5414050414A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE5CE300-DAE0-4401-98FB-D467D3BF2022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE5CE300-DAE0-4401-98FB-D467D3BF2022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE5CE300-DAE0-4401-98FB-D467D3BF2022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE5CE300-DAE0-4401-98FB-D467D3BF2022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A81CA71F-2F6D-4B43-88D8-4186623619F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A81CA71F-2F6D-4B43-88D8-4186623619F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A81CA71F-2F6D-4B43-88D8-4186623619F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A81CA71F-2F6D-4B43-88D8-4186623619F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
