@@ -4,11 +4,11 @@ using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Infrastructure;
 
-public class TeslaCarSharingContext : DbContext
+public class TeslaCarSharingDbContext : DbContext
 {
     public DbSet<Customer> Customers { get; set; }
 
-    public TeslaCarSharingContext(DbContextOptions<TeslaCarSharingContext> options) : base(options)
+    public TeslaCarSharingDbContext(DbContextOptions<TeslaCarSharingDbContext> options) : base(options)
     {      
     }
 

@@ -14,8 +14,4 @@
     <ProjectReference Include="..\..\application\TeslaCarSharing.Application\TeslaCarSharing.Application.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
