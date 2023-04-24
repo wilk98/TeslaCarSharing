@@ -7,6 +7,7 @@ namespace TeslaCarSharing.Infrastructure;
 public class TeslaCarSharingDbContext : DbContext
 {
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Car> Cars { get; set; }
 
     public TeslaCarSharingDbContext(DbContextOptions<TeslaCarSharingDbContext> options) : base(options)
     {      
