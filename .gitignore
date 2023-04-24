@@ -361,3 +361,16 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+
+dist/
+node_modules/
+.cache/
+.env
+.env.local
+.env.development.local
+.env.production.local
+yarn-error.log
+yarn.lock
+.pnp.*
+.pnp.js
