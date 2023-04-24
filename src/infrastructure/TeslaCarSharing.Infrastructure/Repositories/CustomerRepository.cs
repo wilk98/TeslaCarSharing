@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using TeslaCarSharing.Application.Contracts.Infrastructure;
+using TeslaCarSharing.Core;
 
-namespace TeslaCarSharing.Infrastructure.Repositories
+namespace TeslaCarSharing.Infrastructure.Repositories;
+
+public class CustomerRepository : GenericRepository<Customer>, ICustomerRepository
 {
-    internal interface CustomerRepository
+    public CustomerRepository(TeslaCarSharingDbContext context) : base(context)
     {
     }
+
 }

@@ -17,35 +17,35 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         _dbContext = dbContext;
     }
 
-    public async Task<T> Add(T entity)
+    public virtual async Task<T> Add(T entity)
     {
         await _dbContext.AddAsync(entity);
         return entity;
     }
 
-    public async Task Delete(T entity)
+    public virtual async Task Delete(T entity)
     {
         _dbContext.Set<T>().Remove(entity);
     }
 
-    public async Task<bool> Exists(int id)
+    public virtual async Task<bool> Exists(int id)
     {
         var entity = await Get(id);
         return entity != null;
     }
 
-    public async Task<T> Get(int id)
+    public virtual async Task<T> Get(int id)
     {
         var entity = await _dbContext.FindAsync<T>(id);
         return entity;
     }
 
-    public async Task<IReadOnlyList<T>> GetAll()
+    public virtual async Task<IReadOnlyList<T>> GetAll()
     {
         return await _dbContext.Set<T>().ToListAsync();
     }
 
-    public async Task Update(T entity)
+    public virtual async Task Update(T entity)
     {
         _dbContext.Entry(entity).State = EntityState.Modified;
     }
