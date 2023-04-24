@@ -9,7 +9,7 @@ public class Car
     public int Year { get; set; }
     public bool IsAvailable { get; set; }
     public Location Location { get; set; }
-    public decimal Price
+    public decimal PricePerDay
     {
         get
         {
