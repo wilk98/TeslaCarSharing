@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿
 using TeslaCarSharing.Application.Contracts.Infrastructure;
 using TeslaCarSharing.Core;
 
