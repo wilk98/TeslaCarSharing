@@ -6,20 +6,16 @@ namespace TeslaCarSharing.Infrastructure;
 
 public class TeslaCarSharingDbContext : DbContext
 {
-    public DbSet<Customer> Customers { get; set; }
-    public DbSet<Car> Cars { get; set; }
+    public DbSet<Customer> Customers => Set<Customer>();
+    public DbSet<Car> Cars => Set<Car>();
 
-    public TeslaCarSharingDbContext(DbContextOptions<TeslaCarSharingDbContext> options) : base(options)
+    public TeslaCarSharingDbContext(DbContextOptions options) : base(options)
     {      
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        optionsBuilder.LogTo(message => Debug.WriteLine(message));
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
+        base.OnModelCreating(modelBuilder);
+
     }
 }
