@@ -1,0 +1,26 @@
+.footer_container {
+    background-color: #FFE4B2;
+    color: #000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 97%;
+    position: fixed;
+    bottom: 0;
+  }
+  
+  .footer_left p {
+    margin: 0;
+  }
+  
+  .footer_right a {
+    color: #000;
+    margin-left: 20px;
+    text-decoration: none;
+  }
+  
+  .footer_right a:hover {
+    text-decoration: underline;
+  }
+  
