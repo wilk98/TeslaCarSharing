@@ -6,7 +6,7 @@ const Menu = () => {
   return (
     <ul className="nav_container">
       <li>
-        <Link to="/about" className="nav_button">About us</Link>
+        <Link to="/about" className="nav_button">About Us</Link>
       </li>
       <li>
         <Link to="/cars" className="nav_button">Our cars</Link>
