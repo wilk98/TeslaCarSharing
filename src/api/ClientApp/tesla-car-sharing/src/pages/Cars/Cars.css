@@ -1,0 +1,63 @@
+.cars-container {
+  width: 100%;
+  margin: 20px 0;
+}
+
+.cars-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.cars-table th,
+.cars-table td {
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+}
+
+.cars-table th {
+  background-color: #ffe4b2;
+  color: #333;
+  border-right: 1px solid #ddd;
+}
+
+.cars-table td {
+  border-right: 1px solid #ddd;
+}
+
+.cars-table td button {
+  background-color: #ff8c00;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cars-table td button:hover {
+  background-color: #ff6600;
+}
+
+.cars-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.cars-table tbody tr:hover {
+  background-color: #ddd;
+}
+
+.cars-table td button:disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+
+.cars-container h1 {
+  text-align: center;
+  border: 2px solid orange;
+  padding: 10px;
+  border-radius: 5px;
+}
