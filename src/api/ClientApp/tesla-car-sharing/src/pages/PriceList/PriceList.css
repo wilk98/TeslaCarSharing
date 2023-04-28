@@ -1,0 +1,40 @@
+/* PriceList.css */
+
+.price-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .price-list {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .price-list th {
+    background-color: #f2ae39;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .price-list td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+  }  
+  
+  .price-list td img {
+    max-width: 200px;
+    margin-right: 10px;
+  }
+  .container h1 {
+    text-align: center;
+    border: 2px solid orange;
+    padding: 10px;
+    border-radius: 5px;
+  }
