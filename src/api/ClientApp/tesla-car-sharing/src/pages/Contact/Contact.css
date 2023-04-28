@@ -1,0 +1,44 @@
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 20px;
+  }
+  
+  .locations {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 70%;
+  }
+  
+  .locations li {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    width: 48%;
+  }
+  
+  .locations h3 {
+    margin-top: 0;
+    text-align: center;
+  }
+  
+  .locations p {
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .contact-container h1 {
+    text-align: center;
+    border: 2px solid orange;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
