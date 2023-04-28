@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HomeImage from "./Images/HomeImage.png"
-import TeslaS from "./Images/TeslaS.png";
-import Tesla3 from "./Images/Tesla3.png";
-import TeslaX from "./Images/TeslaX.png";
-import TeslaY from "./Images/TeslaY.png";
+import HomeImage from "../../assets/HomeImage.png"
+import TeslaS from "../../assets/TeslaS.png";
+import Tesla3 from "../../assets/Tesla3.png";
+import TeslaX from "../../assets/TeslaX.png";
+import TeslaY from "../../assets/TeslaY.png";
 import "./Home.css";
 
 const Home: React.FC = () => {
