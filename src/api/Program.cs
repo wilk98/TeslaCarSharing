@@ -27,6 +27,8 @@ builder.Services.AddDbContext<TeslaCarSharingDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TeslaCarSharingConnectionString"));
 });
 
+builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 builder.Services.AddScoped<ICustomerService, CustomerService>();
 builder.Services.AddScoped<ICarRepository, CarRepository>();
