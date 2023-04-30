@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeslaCarSharing.Application.Contracts.Application;
-using TeslaCarSharing.Application.DTOs.Car;
 using TeslaCarSharing.Core;
 using AutoMapper;
 
@@ -11,40 +10,35 @@ namespace TeslaCarSharing.Api.Controllers
     public class CarController : ControllerBase
     {
         private readonly ICarService _carService;
-        private readonly IMapper _mapper;
 
-        public CarController(ICarService carService, IMapper mapper)
+        public CarController(ICarService carService)
         {
             _carService = carService;
-            _mapper = mapper;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CarDto>> GetCar(int id)
+        public async Task<ActionResult<Car>> GetCar(int id)
         {
             var car = await _carService.Get(id);
             if (car == null)
             {
                 return NotFound();
             }
-            var carDto = _mapper.Map<CarDto>(car);
-            return Ok(carDto);
+            return Ok(car);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CarDto>>> GetCars()
+        public async Task<ActionResult<IEnumerable<Car>>> GetCars()
         {
             var cars = await _carService.GetAll();
-            var carsDto = _mapper.Map<IEnumerable<CarDto>>(cars);
-            return Ok(carsDto);
+            return Ok(cars);
         }
 
         [HttpPost]
-        public async Task<ActionResult<CarDto>> AddCar(Car car)
+        public async Task<ActionResult<Car>> AddCar(Car car)
         {
             var addedCar = await _carService.Add(car);
-            var carDto = _mapper.Map<CarDto>(addedCar);
-            return CreatedAtAction(nameof(GetCar), new { id = carDto.Id }, carDto);
+            return CreatedAtAction(nameof(GetCar), new { id = addedCar.Id }, addedCar);
         }
 
         [HttpPut("{id}")]
