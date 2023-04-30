@@ -1,5 +1,4 @@
-﻿using TeslaCarSharing.Application.DTOs.Customer;
-using TeslaCarSharing.Core;
+﻿using TeslaCarSharing.Core;
 using AutoMapper;
 using TeslaCarSharing.Application.DTOs.Car;
 
@@ -9,7 +8,6 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
-        CreateMap<Customer, CustomerDto>();
         CreateMap<Car, CarDto>();
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TeslaCarSharing.Application.Contracts.Application;
-using TeslaCarSharing.Application.DTOs.Customer;
 using TeslaCarSharing.Core;
 using AutoMapper;
 
@@ -13,40 +12,35 @@ namespace TeslaCarSharing.Api.Controllers
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _customerService;
-        private readonly IMapper _mapper;
 
-        public CustomerController(ICustomerService customerService, IMapper mapper)
+        public CustomerController(ICustomerService customerService)
         {
             _customerService = customerService;
-            _mapper = mapper;
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<CustomerDto>> GetCustomer(int id)
+        public async Task<ActionResult<Customer>> GetCustomer(int id)
         {
             var customer = await _customerService.Get(id);
             if (customer == null)
             {
                 return NotFound();
             }
-            var customerDto = _mapper.Map<CustomerDto>(customer);
-            return Ok(customerDto);
+            return Ok(customer);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CustomerDto>>> GetCustomers()
+        public async Task<ActionResult<IEnumerable<Customer>>> GetCustomers()
         {
             var customers = await _customerService.GetAll();
-            var customersDto = _mapper.Map<IEnumerable<CustomerDto>>(customers);
-            return Ok(customersDto);
+            return Ok(customers);
         }
 
         [HttpPost]
-        public async Task<ActionResult<CustomerDto>> AddCustomer(Customer customer)
+        public async Task<ActionResult<Customer>> AddCustomer(Customer customer)
         {
             var addedCustomer = await _customerService.Add(customer);
-            var customerDto = _mapper.Map<CustomerDto>(addedCustomer);
-            return CreatedAtAction(nameof(GetCustomer), new { id = customerDto.Id }, customerDto);
+            return CreatedAtAction(nameof(GetCustomer), new { id = addedCustomer.Id }, addedCustomer);
         }
 
         [HttpPut("{id}")]
