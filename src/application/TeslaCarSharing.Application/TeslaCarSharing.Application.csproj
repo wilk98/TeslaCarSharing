@@ -16,4 +16,8 @@
     <ProjectReference Include="..\..\core\TeslaCarSharing.Core\TeslaCarSharing.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTOs\" />
+  </ItemGroup>
+
 </Project>
