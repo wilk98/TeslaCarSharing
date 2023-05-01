@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { api_path } from "../../utils/api";
-import { Link } from "react-router-dom";
 import "./Cars.css";
 
 interface CarData {
@@ -9,13 +8,11 @@ interface CarData {
   model: string;
   color: string;
   year: number;
-  isAvailable: boolean;
   location: string;
   pricePerDay: number;
 }
 
 const Car = ({ car }: { car: CarData }) => {
-  const isAvailable = car.isAvailable;
   const formattedLocation = car.location
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, (str) => str.toUpperCase())
@@ -27,16 +24,8 @@ const Car = ({ car }: { car: CarData }) => {
       <td>{car.model.slice(-1)}</td>
       <td>{car.color}</td>
       <td>{car.year}</td>
-      <td>{car.isAvailable ? "Yes" : "No"}</td>
       <td>{formattedLocation}</td>
       <td>{car.pricePerDay} $</td>
-      <td>
-        <Link to={`/reservation?id=${car.id}`}>
-          <button className="book-button" disabled={!isAvailable}>
-            {isAvailable ? "Book" : "Not Available"}
-          </button>
-        </Link>
-      </td>
     </tr>
   );
 };
@@ -61,10 +50,8 @@ const Cars = () => {
             <th>Model</th>
             <th>Color</th>
             <th>Year</th>
-            <th>Is Available</th>
             <th>Location</th>
             <th>Price Per Day</th>
-            <th>Book Now</th>
           </tr>
         </thead>
         <tbody>
