@@ -1,4 +1,4 @@
-﻿namespace TeslaCarSharing.Core;
+﻿using TeslaCarSharing.Core;
 
 public class Reservation
 {
@@ -9,7 +9,15 @@ public class Reservation
     public Customer Customer { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public decimal TotalPrice { get; set; }
+    public Location StartLocation { get; set; }
+    public Location EndLocation { get; set; }
+    public decimal TotalPrice { get; set; } 
 
 
+    public void UpdateTotalPrice(Car car)
+    {
+        var days = (EndDate - StartDate).Days;
+        var pricePerDay = car.PricePerDay;
+        TotalPrice = days * pricePerDay;
+    }
 }
