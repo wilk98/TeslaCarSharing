@@ -67,5 +67,12 @@ public class CarController : ControllerBase
 
         return NoContent();
     }
+
+    [HttpGet("available")]
+    public async Task<ActionResult<IReadOnlyList<Car>>> GetAvailableCars(DateTime startDate, DateTime endDate)
+    {
+        var availableCars = await _carService.GetAvailableCarsAsync(startDate, endDate);
+        return Ok(availableCars);
+    }
 }
 
