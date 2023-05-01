@@ -7,7 +7,6 @@ public class Car
     public TeslaModel Model { get; set; }
     public string Color { get; set; }
     public int Year { get; set; }
-    public bool IsAvailable { get; set; }
     public Location Location { get; set; }
     public decimal PricePerDay
     {
