@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeslaCarSharing.Application.Contracts.Application;
+using TeslaCarSharing.Application.DTOs.Reservation;
 using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Api.Contollers;
@@ -16,9 +17,9 @@ public class ReservationController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Reservation>> GetReservation(int id)
+    public async Task<ActionResult<ReservationDto>> GetReservation(int id)
     {
-        var reservation = await _reservationService.Get(id);
+        var reservation = await _reservationService.GetReservationAsync(id);
         if (reservation == null)
         {
             return NotFound();
@@ -27,43 +28,43 @@ public class ReservationController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Reservation>>> GetReservations()
+    public async Task<ActionResult<IEnumerable<ReservationDto>>> GetReservations()
     {
-        var reservations = await _reservationService.GetAll();
+        var reservations = await _reservationService.GetAllReservationsAsync();
         return Ok(reservations);
     }
 
     [HttpPost]
-    public async Task<ActionResult<Reservation>> AddReservation(Reservation reservation)
-    {
-        var addedReservation = await _reservationService.Add(reservation);
-        return CreatedAtAction(nameof(GetReservation), new { id = addedReservation.Id }, addedReservation);
+    public async Task<ActionResult<CreateReservationDto>> AddReservation(CreateReservationDto reservationDto)
+    { 
+        var addedReservation = await _reservationService.AddReservationAsync(reservationDto);
+        return CreatedAtAction(nameof(GetReservation), new { id = addedReservation}, addedReservation);
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateReservation(int id, Reservation reservation)
-    {
-        if (id != reservation.Id)
-        {
-            return BadRequest();
-        }
+    //[HttpPut("{id}")]
+    //public async Task<IActionResult> UpdateReservation(int id, Reservation reservation)
+    //{
+    //    if (id != reservation.Id)
+    //    {
+    //        return BadRequest();
+    //    }
 
-        await _reservationService.Update(reservation);
+    //    await _reservationService.Update(reservation);
 
-        return NoContent();
-    }
+    //    return NoContent();
+    //}
 
-    [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteReservation(int id)
-    {
-        var reservation = await _reservationService.Get(id);
-        if (reservation == null)
-        {
-            return NotFound();
-        }
+    //[HttpDelete("{id}")]
+    //public async Task<IActionResult> DeleteReservation(int id)
+    //{
+    //    var reservation = await _reservationService.Get(id);
+    //    if (reservation == null)
+    //    {
+    //        return NotFound();
+    //    }
 
-        await _reservationService.Delete(reservation);
+    //    await _reservationService.Delete(reservation);
 
-        return NoContent();
-    }
+    //    return NoContent();
+    //}
 }
