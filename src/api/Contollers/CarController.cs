@@ -2,6 +2,7 @@
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Core;
 using AutoMapper;
+using TeslaCarSharing.Application.DTOs.Car;
 
 namespace TeslaCarSharing.Api.Controllers;
 
@@ -17,9 +18,9 @@ public class CarController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Car>> GetCar(int id)
+    public async Task<ActionResult<CarDto>> GetCar(int id)
     {
-        var car = await _carService.Get(id);
+        var car = await _carService.GetCarAsync(id);
         if (car == null)
         {
             return NotFound();
@@ -28,21 +29,21 @@ public class CarController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Car>>> GetCars()
+    public async Task<ActionResult<IEnumerable<CarDto>>> GetCars()
     {
-        var cars = await _carService.GetAll();
+        var cars = await _carService.GetAllCarsAsync();
         return Ok(cars);
     }
 
     [HttpPost]
-    public async Task<ActionResult<Car>> AddCar(Car car)
+    public async Task<ActionResult<CarDto>> AddCar(CarDto car)
     {
         var addedCar = await _carService.Add(car);
         return CreatedAtAction(nameof(GetCar), new { id = addedCar.Id }, addedCar);
     }
 
     [HttpPut("{id}")]
-    public async Task<IActionResult> UpdateCar(int id, Car car)
+    public async Task<IActionResult> UpdateCar(int id, CarDto car)
     {
         if (id != car.Id)
         {
@@ -57,13 +58,13 @@ public class CarController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCar(int id)
     {
-        var car = await _carService.Get(id);
+        var car = await _carService.GetCarAsync(id);
         if (car == null)
         {
             return NotFound();
         }
 
-        await _carService.Delete(car);
+        await _carService.Delete(car.Id);
 
         return NoContent();
     }
