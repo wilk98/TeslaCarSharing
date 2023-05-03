@@ -12,7 +12,7 @@ using TeslaCarSharing.Infrastructure;
 namespace TeslaCarSharing.Infrastructure.Migrations
 {
     [DbContext(typeof(TeslaCarSharingDbContext))]
-    [Migration("20230501161529_InitialMigration")]
+    [Migration("20230503170330_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -80,6 +80,9 @@ namespace TeslaCarSharing.Infrastructure.Migrations
 
                     b.Property<int>("Model")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("PricePerDay")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("RegistrationNumber")
                         .IsRequired()

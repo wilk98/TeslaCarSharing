@@ -78,6 +78,9 @@ namespace TeslaCarSharing.Infrastructure.Migrations
                     b.Property<int>("Model")
                         .HasColumnType("int");
 
+                    b.Property<decimal>("PricePerDay")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("RegistrationNumber")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");

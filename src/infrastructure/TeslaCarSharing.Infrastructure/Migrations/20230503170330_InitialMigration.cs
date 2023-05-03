@@ -21,7 +21,8 @@ namespace TeslaCarSharing.Infrastructure.Migrations
                     Model = table.Column<int>(type: "int", nullable: false),
                     Color = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Year = table.Column<int>(type: "int", nullable: false),
-                    Location = table.Column<int>(type: "int", nullable: false)
+                    Location = table.Column<int>(type: "int", nullable: false),
+                    PricePerDay = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
                 constraints: table =>
                 {
