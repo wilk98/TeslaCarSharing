@@ -8,6 +8,12 @@ using TeslaCarSharing.Application.Services;
 using TeslaCarSharing.Infrastructure;
 using TeslaCarSharing.Infrastructure.Repositories;
 using TeslaCarSharing.Application.Profiles;
+using FluentValidation.AspNetCore;
+using FluentValidation;
+using TeslaCarSharing.Application.DTOs.Reservation;
+using TeslaCarSharing.Application.DTOs.Customer;
+using TeslaCarSharing.Application.DTOs.Car;
+using TeslaCarSharing.Application.Validations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +33,7 @@ builder.Services.AddDbContext<TeslaCarSharingDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TeslaCarSharingConnectionString"));
 });
 
+
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
 builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
@@ -35,6 +42,13 @@ builder.Services.AddScoped<ICarRepository, CarRepository>();
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddControllers();
+builder.Services.AddFluentValidation();
+builder.Services.AddTransient<IValidator<CreateReservationDto>, CreateReservationDtoValidator>();
+builder.Services.AddTransient<IValidator<CustomerDto>, CustomerDtoValidator>();
+builder.Services.AddTransient<IValidator<CarDto>, CarDtoValidator>();
+
+
+
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
