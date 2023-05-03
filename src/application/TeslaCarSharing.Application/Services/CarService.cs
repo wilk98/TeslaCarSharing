@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using System.Linq;
+using FluentValidation;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
 using TeslaCarSharing.Application.DTOs.Car;
-using TeslaCarSharing.Application.DTOs.Customer;
 using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Application.Services;
@@ -13,15 +12,22 @@ public class CarService : ICarService
     private readonly ICarRepository _repository;
     private readonly IReservationService _reservationService;
     private readonly IMapper _mapper;
+    private readonly IValidator<CarDto> _validator;
 
-    public CarService(ICarRepository repository, IReservationService reservationService, IMapper mapper)
+    public CarService(ICarRepository repository, IReservationService reservationService, IMapper mapper, IValidator<CarDto> validator)
     {
         _repository = repository;
         _reservationService = reservationService;
         _mapper = mapper;
+        _validator = validator;
     }
     public async Task<CarDto> Add(CarDto carDto)
     {
+        var validationResult = await _validator.ValidateAsync(carDto);
+        if (!validationResult.IsValid)
+        {
+            throw new ValidationException(validationResult.Errors);
+        }
         var car = _mapper.Map<Car>(carDto);
         var addedCar = await _repository.Add(car);
         return _mapper.Map<CarDto>(addedCar);
@@ -50,6 +56,11 @@ public class CarService : ICarService
 
     public async Task Update(CarDto carDto)
     {
+        var validationResult = await _validator.ValidateAsync(carDto);
+        if (!validationResult.IsValid)
+        {
+            throw new ValidationException(validationResult.Errors);
+        }
         var car = _mapper.Map<Car>(carDto);
         await _repository.Update(car);
     }
