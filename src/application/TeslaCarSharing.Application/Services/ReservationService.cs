@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using FluentValidation;
+using System.ComponentModel.DataAnnotations;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
 using TeslaCarSharing.Application.DTOs.Reservation;
@@ -12,17 +14,24 @@ public class ReservationService : IReservationService
     private readonly ICarRepository _carRepository;
     private readonly ICustomerService _customerService;
     private readonly IMapper _mapper;
+    private readonly IValidator<CreateReservationDto> _validator;
 
-    public ReservationService(IReservationRepository reservationRepository, ICustomerService customerService, IMapper mapper, ICarRepository carRepository)
+    public ReservationService(IReservationRepository reservationRepository, ICustomerService customerService, IMapper mapper, ICarRepository carRepository, IValidator<CreateReservationDto> validator)
     {
         _carRepository = carRepository;
         _reservationRepository = reservationRepository;
         _customerService = customerService;
         _mapper = mapper;
+        _validator = validator;
     }
 
     public async Task<int> AddReservationAsync(CreateReservationDto reservationDto)
     {
+        var validationResult = await _validator.ValidateAsync(reservationDto);
+        if (!validationResult.IsValid)
+        {
+            throw new FluentValidation.ValidationException(validationResult.Errors);
+        }
         var customer = reservationDto.Customer;
         var newCustomer = await _customerService.Add(customer);
 
