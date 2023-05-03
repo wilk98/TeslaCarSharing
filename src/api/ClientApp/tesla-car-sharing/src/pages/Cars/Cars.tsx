@@ -33,7 +33,7 @@ const Car = ({ car, onDelete }: { car: CarData; onDelete: () => void }) => {
       <td>{car.color}</td>
       <td>{car.year}</td>
       <td>{formattedLocation}</td>
-      <td>{car.pricePerDay} €</td>
+      <td>{car.pricePerDay.toFixed(2)} €</td>
       <td>
         <button onClick={onDelete}>Delete</button>
       </td>

@@ -48,7 +48,7 @@ const PriceList: React.FC = () => {
                   <img src={car.image} alt={car.name} />
                   <h3>{car.name}</h3>
                 </td>
-                <td>{car.price}</td>
+                <td>{car.price.toFixed(2)} €</td>
               </tr>
             ))}
           </tbody>
