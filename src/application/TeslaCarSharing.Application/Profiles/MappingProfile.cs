@@ -10,8 +10,10 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
+        CreateMap<Reservation, CreateReservationDto>();
         CreateMap<CreateReservationDto, Reservation>();
         CreateMap<Reservation, ReservationDto>();
+        CreateMap<ReservationDto, Reservation>();
         CreateMap<Car, CarDto>();
         CreateMap<Customer, CustomerDto>();
         CreateMap<CarDto, Car>();
