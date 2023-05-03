@@ -16,6 +16,7 @@ const Reservation = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [bookingCar, setBookingCar] = useState<Car | null>(null);
+  const [reservationStatus, setReservationStatus] = useState<string | null>(null);
 
   const [cars, setCars] = useState<Car[]>([]);
 
@@ -30,6 +31,7 @@ const Reservation = () => {
   
   const handleSearch = async () => {
     if (startDate && endDate) {
+      setReservationStatus(null)
       const response = await fetch(`${api_path}/api/Car/available?startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}`);
       const data = await response.json();
       setCars(data);
@@ -67,6 +69,20 @@ const Reservation = () => {
     setClientForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
+  const resetState = () => {
+    setStartDate(null);
+    setEndDate(null);
+    setBookingCar(null);
+    setCars([]);
+    setClientForm({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      endLocation: "PalmaAirport",
+    });
+  };
+
   const handleClientFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!bookingCar) return;
@@ -97,6 +113,8 @@ const Reservation = () => {
       if (response.ok) {
         const addedReservation = await response.json();
         console.log('Reservation added:', addedReservation);
+        resetState();
+        setReservationStatus("success");
       } else {
 
         console.error('Failed to add reservation:', response.status);
@@ -105,10 +123,16 @@ const Reservation = () => {
       console.error('Network error:', error);
     }
   };
-  
+
+
   return (
     <div className="reservation-container">
       <h1>Reservation</h1>
+      {reservationStatus === "success" && (
+      <div className="reservation-success">
+        Reservation added
+      </div>
+      )}
       <form className="reservation-form">
         <div className="reservation-form-input">
           <label htmlFor="start-date">Start Date:</label>
