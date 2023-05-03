@@ -1,6 +1,4 @@
-﻿using TeslaCarSharing.Core;
-
-namespace TeslaCarSharing.Application.DTOs.Car;
+﻿namespace TeslaCarSharing.Application.DTOs.Car;
 
 public class CarDto
 {

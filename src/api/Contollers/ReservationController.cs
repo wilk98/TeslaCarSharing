@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.DTOs.Reservation;
-using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Api.Contollers;
 
@@ -41,30 +40,4 @@ public class ReservationController : ControllerBase
         return CreatedAtAction(nameof(GetReservation), new { id = addedReservation}, addedReservation);
     }
 
-    //[HttpPut("{id}")]
-    //public async Task<IActionResult> UpdateReservation(int id, Reservation reservation)
-    //{
-    //    if (id != reservation.Id)
-    //    {
-    //        return BadRequest();
-    //    }
-
-    //    await _reservationService.Update(reservation);
-
-    //    return NoContent();
-    //}
-
-    //[HttpDelete("{id}")]
-    //public async Task<IActionResult> DeleteReservation(int id)
-    //{
-    //    var reservation = await _reservationService.Get(id);
-    //    if (reservation == null)
-    //    {
-    //        return NotFound();
-    //    }
-
-    //    await _reservationService.Delete(reservation);
-
-    //    return NoContent();
-    //}
 }

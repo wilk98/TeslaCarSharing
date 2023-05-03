@@ -1,5 +1,3 @@
-// PriceList.tsx
-
 import "./PriceList.css";
 import teslaXImg from "../../assets/TeslaX.png";
 import teslaYImg from "../../assets/TeslaY.png";

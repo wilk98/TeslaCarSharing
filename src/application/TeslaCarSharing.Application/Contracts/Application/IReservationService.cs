@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using TeslaCarSharing.Application.DTOs.Reservation;
-using TeslaCarSharing.Core;
+﻿using TeslaCarSharing.Application.DTOs.Reservation;
 
 namespace TeslaCarSharing.Application.Contracts.Application;
 

@@ -1,7 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
-using AutoMapper;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
 using TeslaCarSharing.Application.Services;

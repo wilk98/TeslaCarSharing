@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Infrastructure;

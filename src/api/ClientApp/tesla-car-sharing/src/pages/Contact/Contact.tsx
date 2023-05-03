@@ -1,5 +1,3 @@
-// Contact.tsx
-
 import "./Contact.css";
 
 const locations = [

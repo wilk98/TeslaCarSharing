@@ -1,5 +1,4 @@
-﻿
-using TeslaCarSharing.Application.Contracts.Infrastructure;
+﻿using TeslaCarSharing.Application.Contracts.Infrastructure;
 using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Infrastructure.Repositories;

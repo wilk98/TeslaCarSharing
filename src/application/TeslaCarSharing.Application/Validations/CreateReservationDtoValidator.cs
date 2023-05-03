@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using TeslaCarSharing.Application.DTOs.Customer;
 using TeslaCarSharing.Application.DTOs.Reservation;
 
 namespace TeslaCarSharing.Application.Validations;

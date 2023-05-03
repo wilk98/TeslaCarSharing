@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 using FluentValidation;
-using System.ComponentModel.DataAnnotations;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
 using TeslaCarSharing.Application.DTOs.Reservation;
-using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Application.Services;
 

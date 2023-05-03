@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using System.ComponentModel.DataAnnotations;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
 using TeslaCarSharing.Application.DTOs.Customer;

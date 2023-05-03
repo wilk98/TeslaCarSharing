@@ -1,8 +1,5 @@
-﻿using AutoMapper;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
-using TeslaCarSharing.Application.DTOs.Reservation;
-using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Infrastructure.Repositories;
 
