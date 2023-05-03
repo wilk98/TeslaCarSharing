@@ -13,13 +13,15 @@ public class CarService : ICarService
     private readonly IReservationService _reservationService;
     private readonly IMapper _mapper;
     private readonly IValidator<CarDto> _validator;
+    private readonly IPricePerDayProvider _pricePerDayProvider;
 
-    public CarService(ICarRepository repository, IReservationService reservationService, IMapper mapper, IValidator<CarDto> validator)
+    public CarService(ICarRepository repository, IReservationService reservationService, IMapper mapper, IValidator<CarDto> validator, IPricePerDayProvider pricePerDayProvider)
     {
         _repository = repository;
         _reservationService = reservationService;
         _mapper = mapper;
         _validator = validator;
+        _pricePerDayProvider = pricePerDayProvider;
     }
     public async Task<CarDto> Add(CarDto carDto)
     {
@@ -29,6 +31,7 @@ public class CarService : ICarService
             throw new ValidationException(validationResult.Errors);
         }
         var car = _mapper.Map<Car>(carDto);
+        car.PricePerDay = _pricePerDayProvider.GetPricePerDay(car.Model);
         var addedCar = await _repository.Add(car);
         return _mapper.Map<CarDto>(addedCar);
     }
