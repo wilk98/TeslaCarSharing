@@ -1,5 +1,4 @@
-﻿using TeslaCarSharing.Application.DTOs.Customer;
-using TeslaCarSharing.Application.DTOs.Reservation;
+﻿using TeslaCarSharing.Application.DTOs.Reservation;
 
 namespace TeslaCarSharing.Application.Contracts.Application;
 

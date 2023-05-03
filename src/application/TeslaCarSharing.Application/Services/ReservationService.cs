@@ -2,9 +2,7 @@
 using FluentValidation;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
-using TeslaCarSharing.Application.DTOs.Customer;
 using TeslaCarSharing.Application.DTOs.Reservation;
-using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Application.Services;
 

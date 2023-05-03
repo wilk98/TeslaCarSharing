@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeslaCarSharing.Application.Contracts.Application;
-using TeslaCarSharing.Application.DTOs.Customer;
 using TeslaCarSharing.Application.DTOs.Reservation;
-using TeslaCarSharing.Application.Services;
 
 namespace TeslaCarSharing.Api.Contollers;
 
