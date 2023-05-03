@@ -61,3 +61,39 @@
   padding: 10px;
   border-radius: 5px;
 }
+
+.add-car-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
+
+.add-car-table td {
+  padding: 8px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.add-car-table input,
+.add-car-table select {
+  width: 100%;
+}
+
+.add-car-table button {
+  background-color: #ff8c00;
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-car-table button:hover {
+  background-color: #ff6600;
+}
+
