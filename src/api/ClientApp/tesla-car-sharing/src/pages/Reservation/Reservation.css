@@ -1,0 +1,110 @@
+.reservation-container {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.reservation-form label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.reservation-form input[type="date"] {
+    width: 200px;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.reservation-form button {
+    background-color: #ff8c00;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reservation-form button:hover {
+    background-color: #ff6600;
+}
+
+.reservation-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.reservation-table th,
+.reservation-table td {
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+}
+
+.reservation-table th {
+    background-color: #ffe4b2;
+    color: #333;
+    border-right: 1px solid #ddd;
+}
+
+.reservation-table td {
+    border-right: 1px solid #ddd;
+}
+
+.reservation-table td button {
+    background-color: #ff8c00;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reservation-table td button:hover {
+    background-color: #ff6600;
+}
+
+.reservation-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.reservation-table tbody tr:hover {
+    background-color: #ddd;
+}
+
+.reservation-table td button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.reservation-container h1 {
+    text-align: center;
+    border: 2px solid orange;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.reservation-no-cars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    font-size: 24px;
+    color: #999;
+  }
+  
+
