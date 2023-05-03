@@ -14,7 +14,7 @@ public class ReservationDto
     public int CustomerId { get; set; }
     public DateTime StartDate { get; set; }
     public DateTime EndDate { get; set; }
-    public Location StartLocation { get; set; }
-    public Location EndLocation { get; set; }
+    public string StartLocation { get; set; }
+    public string EndLocation { get; set; }
     public decimal TotalPrice { get; set; }
 }
