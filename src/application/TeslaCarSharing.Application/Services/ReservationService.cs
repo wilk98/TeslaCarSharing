@@ -31,10 +31,9 @@ public class ReservationService : IReservationService
             throw new ValidationException(validationResult.Errors);
         }
         var customer = reservationDto.Customer;
-        var newCustomer = await _customerService.Add(customer);
 
         var reservation = _mapper.Map<Reservation>(reservationDto);
-        reservation.CustomerId = newCustomer.Id;
+        reservation.CustomerId = customer.Id;
 
         var car = await _carRepository.Get(reservationDto.CarId);
         reservation.UpdateTotalPrice(car);
