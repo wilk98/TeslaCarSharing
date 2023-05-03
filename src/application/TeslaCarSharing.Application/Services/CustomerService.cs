@@ -25,7 +25,7 @@ public class CustomerService : ICustomerService
         var validationResult = await _validator.ValidateAsync(customerDto);
         if (!validationResult.IsValid)
         {
-            throw new FluentValidation.ValidationException(validationResult.Errors);
+            throw new ValidationException(validationResult.Errors);
         }
         var customer = _mapper.Map<Customer>(customerDto);
         var addedCustomer = await _repository.Add(customer);
@@ -58,7 +58,7 @@ public class CustomerService : ICustomerService
         var validationResult = await _validator.ValidateAsync(customerDto);
         if (!validationResult.IsValid)
         {
-            throw new FluentValidation.ValidationException(validationResult.Errors);
+            throw new ValidationException(validationResult.Errors);
         }
         var customer = _mapper.Map<Customer>(customerDto);
         await _repository.Update(customer);

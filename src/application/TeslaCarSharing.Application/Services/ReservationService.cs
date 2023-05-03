@@ -2,7 +2,9 @@
 using FluentValidation;
 using TeslaCarSharing.Application.Contracts.Application;
 using TeslaCarSharing.Application.Contracts.Infrastructure;
+using TeslaCarSharing.Application.DTOs.Customer;
 using TeslaCarSharing.Application.DTOs.Reservation;
+using TeslaCarSharing.Core;
 
 namespace TeslaCarSharing.Application.Services;
 
@@ -28,7 +30,7 @@ public class ReservationService : IReservationService
         var validationResult = await _validator.ValidateAsync(reservationDto);
         if (!validationResult.IsValid)
         {
-            throw new FluentValidation.ValidationException(validationResult.Errors);
+            throw new ValidationException(validationResult.Errors);
         }
         var customer = reservationDto.Customer;
         var newCustomer = await _customerService.Add(customer);
@@ -65,6 +67,24 @@ public class ReservationService : IReservationService
         return unavailableCarIds;
     }
 
+    public async Task Update(CreateReservationDto reservationDto)
+    {
+        var validationResult = await _validator.ValidateAsync(reservationDto);
+        if (!validationResult.IsValid)
+        {
+            throw new ValidationException(validationResult.Errors);
+        }
+        var reservation = _mapper.Map<Reservation>(reservationDto);
+        await _reservationRepository.Update(reservation);
+    }
 
+    public async Task Delete(int reservationId)
+    {
+        var reservation = await _reservationRepository.Get(reservationId);
+        if (reservation != null)
+        {
+            await _reservationRepository.Delete(reservation);
+        }
+    }
 }
 
