@@ -19,7 +19,7 @@ public class CarDtoValidator : AbstractValidator<CarDto>
             .NotEmpty().WithMessage("Color is required.");
 
         RuleFor(x => x.Year)
-            .InclusiveBetween(1900, 2100).WithMessage("Year must be between 1900 and 2100.");
+            .InclusiveBetween(2012, 2023).WithMessage("Year must be between 1900 and 2100.");
 
         RuleFor(x => x.Location)
             .NotNull().WithMessage("Location is required.");
